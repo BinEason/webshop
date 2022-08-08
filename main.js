@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import { $http } from '@escook/request-miniprogram'
+import mySearch from '@/uni_modules/my-search/components/my-search/my-search.vue'
+Vue.use(mySearch)
 
 uni.$http=$http
 //请求拦截器

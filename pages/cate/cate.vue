@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view>
+      <my-search @searchFa="searchfn"></my-search>
+    </view>
     <view class="scroll-view-container">
       <!-- 左侧滑动 -->
       <scroll-view class="left-scroll-view" scroll-y="true" :style="{height:sheight + 'px'}">
@@ -15,7 +18,7 @@
           <view class="cate-level2-title">^{{item2.cat_name}}^</view>
           <view class="cate-level3-list">
             <view class="cate-level3-item" v-for="(item3,i3) in item2.children" @click="goodslist(item3)" :key="i3">
-              <image src="/static/404.jpg"></image>
+              <image :src="item3.cat_icon.replace('dev','web')"></image>
               <text>{{item3.cat_name}}</text>
             </view>
             
@@ -42,7 +45,7 @@
     },
     onLoad() {
       const sysinfo = uni.getSystemInfoSync()
-      this.sheight=sysinfo.windowHeight
+      this.sheight=sysinfo.windowHeight -50
       this.getCateList()
     },
     methods:{
@@ -64,6 +67,11 @@
       goodslist(item){
         uni.navigateTo({
           url:"/subpkg/goods_list/goods_list?cid=" + item.cat_id
+        })
+      },
+      searchfn(){
+        uni.navigateTo({
+          url:"/subpkg/search/search"
         })
       }
     }
@@ -101,6 +109,7 @@
       font-size: 12px;
       font-weight: bold;
       text-align: center;
+      margin: 15px auto;
     }
     .cate-level3-list{
       display: flex;
