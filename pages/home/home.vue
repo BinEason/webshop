@@ -1,6 +1,7 @@
 <template>
   
   <view>
+    
     <view class="search-box">
       <my-search @searchFa="searchfn"></my-search>
     </view>
