@@ -52,7 +52,9 @@
 </template>
 
 <script>
-  export default {
+ import badge from '../../mixins/tabbar-badge.js'
+ export default {
+   mixins:[badge],
     data() {
       return {
         //轮播图数组

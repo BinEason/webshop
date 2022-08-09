@@ -70,7 +70,7 @@
       },
       gotoDetail(id){
       uni.navigateTo({
-        url:"/subpkg/goods_detail/goods_detail?gid=" + id
+        url:"/subpkg/goods_detail/goods_detail?goods_id=" + id
       })
         
       },

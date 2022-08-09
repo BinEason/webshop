@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import { $http } from '@escook/request-miniprogram'
 import mySearch from '@/uni_modules/my-search/components/my-search/my-search.vue'
+import store from "@/store/store.js"
 Vue.use(mySearch)
 
 uni.$http=$http
@@ -33,7 +34,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+    store
 })
 app.$mount()
 // #endif
